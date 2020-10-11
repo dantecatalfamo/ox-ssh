@@ -20,8 +20,11 @@
   :group 'org-export-ssh)
 
 (org-export-define-backend 'ssh
-                           '((headline . org-ssh-headline)
-                             (template . org-ssh-template)))
+  '((headline . org-ssh-headline)
+    (template . org-ssh-template))
+  :menu-entry
+  '(?s "Export to SSH config")
+  )
 
 (defun org-ssh-headline (headline _contents _info)
   "Transform HEADLINE into SSH config host."
@@ -46,6 +49,36 @@
   "Transform CONTENTS into SSH config with header."
   (concat org-ssh-header "\n"
           contents))
+
+(defun org-ssh-export-as-ssh-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
+       "Export current buffer to an SSH config buffer.
+
+If narrowing is active in the current buffer, only transcode its
+narrowed part.
+
+If a region is active, transcode that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the org-export-stack interface.
+
+When optional argument SUBTREEP is non-nil, transcode the
+sub-tree at point, extracting information from the headline
+properties first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only return body
+code, without surrounding template.
+
+Optional argument EXT-PLIST, when provided, is a property list
+with external parameters overriding Org default settings, but
+still inferior to file-local settings."
+       (interactive)
+       (org-export-to-buffer 'ssh "*Org SSH Export*"
+         ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST
+         (lambda () (conf-mode))))
 
 (provide 'ox-ssh)
 ;;; ox-ssh.el ends here
