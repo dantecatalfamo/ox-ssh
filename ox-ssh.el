@@ -30,7 +30,7 @@
   "Transform HEADLINE into SSH config host."
   (let* ((url (org-element-property :URL headline))
         (ip (org-element-property :IP headline))
-        (host (car (org-element-property :title headline)))
+        (host (org-element-property :raw-value headline))
         (ssh-forward (org-element-property :SSH_FORWARD headline))
         (ssh-port (org-element-property :SSH_PORT headline))
         (user (org-element-property :SSH_USER headline))
