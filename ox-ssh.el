@@ -10,12 +10,21 @@
 
 (require 'ox)
 
+(defgroup org-export-ssh nil
+  "Options for exporting Org mode files to SSH config."
+  :group 'org-export)
+
+(defcustom org-ssh-header ""
+  "Optional text to be inserted at the top of SSH config."
+  :type 'text
+  :group 'org-export-ssh)
+
 (org-export-define-backend 'ssh
                            '((headline . org-ssh-headline)
                              (template . org-ssh-template)))
 
 (defun org-ssh-headline (headline _contents _info)
-  "Translate HEADLINE into SSH config line."
+  "Transform HEADLINE into SSH config host."
   (let ((url (org-element-property :URL headline))
         (ip (org-element-property :IP headline))
         (host (car (org-element-property :title headline)))
@@ -33,8 +42,10 @@
                 (concat "  User " user "\n"))
               "\n"))))
 
-(defun org-ssh-template (contents info)
-  )
+(defun org-ssh-template (contents _info)
+  "Transform CONTENTS into SSH config with header."
+  (concat org-ssh-header "\n"
+          contents))
 
 (provide 'ox-ssh)
 ;;; ox-ssh.el ends here
