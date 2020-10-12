@@ -26,8 +26,8 @@
   '(?s "Export to SSH config")
   )
 
-(defun org-ssh-headline (headline _contents _info)
-  "Transform HEADLINE into SSH config host."
+(defun org-ssh-headline (headline contents _info)
+  "Transform HEADLINE and CONTENTS into SSH config host."
   (let* ((url (org-element-property :URL headline))
         (ip (org-element-property :IP headline))
         (host (org-element-property :raw-value headline))
@@ -35,7 +35,7 @@
         (ssh-port (org-element-property :SSH_PORT headline))
         (user (org-element-property :SSH_USER headline))
         (addr (or ip url)))
-    (when addr
+    (if addr
       (concat "Host " host "\n"
               "  HostName " addr "\n"
               (when ssh-forward
@@ -44,7 +44,9 @@
                 (concat "  Port " ssh-port "\n"))
               (when user
                 (concat "  User " user "\n"))
-              "\n"))))
+              "\n"
+              contents)
+      contents)))
 
 (defun org-ssh-template (contents _info)
   "Transform CONTENTS into SSH config with header."
