@@ -36,7 +36,7 @@
         (user (org-element-property :SSH_USER headline))
         (addr (or ip url)))
     (if addr
-      (concat "Host " host "\n"
+      (concat "\nHost " host "\n"
               "  HostName " addr "\n"
               (when ssh-forward
                 "  ForwardAgent yes\n")
@@ -44,13 +44,12 @@
                 (concat "  Port " ssh-port "\n"))
               (when user
                 (concat "  User " user "\n"))
-              "\n"
               contents)
       contents)))
 
 (defun org-ssh-template (contents _info)
   "Transform CONTENTS into SSH config with header."
-  (concat org-ssh-header "\n\n"
+  (concat org-ssh-header "\n"
           contents))
 
 (defun org-ssh-export-as-ssh-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
