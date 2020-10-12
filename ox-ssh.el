@@ -23,8 +23,8 @@
   '((headline . org-ssh-headline)
     (template . org-ssh-template))
   :menu-entry
-  '(?s "Export to SSH config")
-  )
+  '(?s "Export to SSH config"
+       ((?s "As Conf buffer" org-ssh-export-as-config))))
 
 (defun org-ssh-headline (headline contents _info)
   "Transform HEADLINE and CONTENTS into SSH config host."
@@ -52,7 +52,7 @@
   (concat org-ssh-header "\n"
           contents))
 
-(defun org-ssh-export-as-ssh-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
+(defun org-ssh-export-as-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
        "Export current buffer to an SSH config buffer.
 
 If narrowing is active in the current buffer, only transcode its
