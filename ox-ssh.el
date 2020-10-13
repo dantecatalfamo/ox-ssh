@@ -24,7 +24,8 @@
     (template . org-ssh-template))
   :menu-entry
   '(?s "Export to SSH config"
-       ((?s "To temporary buffer" org-ssh-export-as-config))))
+       ((?s "To config file" org-ssh-export-to-config)
+        (?S "To temporary buffer" org-ssh-export-as-config))))
 
 (defun org-ssh-headline (headline contents _info)
   "Transform HEADLINE and CONTENTS into SSH config host."
@@ -337,6 +338,37 @@ still inferior to file-local settings."
   (org-export-to-buffer 'ssh "*Org SSH Export*"
     ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST
     (lambda () (conf-mode))))
+
+(defun org-ssh-export-to-config (&optional async subtreep visible-only body-only ext-plist)
+  "Export current buffer to an SSH config buffer.
+
+If narrowing is active in the current buffer, only transcode its
+narrowed part.
+
+If a region is active, transcode that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the org-export-stack interface.
+
+When optional argument SUBTREEP is non-nil, transcode the
+sub-tree at point, extracting information from the headline
+properties first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only return body
+code, without surrounding template.
+
+Optional argument EXT-PLIST, when provided, is a property list
+with external parameters overriding Org default settings, but
+still inferior to file-local settings.
+
+Return output file's name."
+  (interactive)
+  (let ((outfile (org-export-output-file-name ".ssh_config" subtreep)))
+    (org-export-to-file 'ssh outfile async subtreep visible-only body-only ext-plist)))
 
 (provide 'ox-ssh)
 ;;; ox-ssh.el ends here
