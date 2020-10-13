@@ -50,7 +50,20 @@
          (ssh-certificate-file (org-element-property :SSH_CERTIFICATE_FILE headline))
          (ssh-challenge-response-auth (org-element-property :SSH_CHALLENGE_RESPONSE_AUTHENTICATION headline))
          (ssh-check-host-ip (org-element-property :SSH_CHECK_HOST_IP headline))
-         (ssh-ciphers (org-element-property :SSH_CIPHERS headline)))
+         (ssh-ciphers (org-element-property :SSH_CIPHERS headline))
+         (ssh-clear-all-forwardings (org-element-property :SSH_CLEAR_ALL_FORWARDINGS headline))
+         (ssh-compression (org-element-property :SSH_COMPRESSION headline))
+         (ssh-connection-attempts (org-element-property :SSH_CONNECTION_ATTEMPTS headline))
+         (ssh-connect-timeout (org-element-property :SSH_CONNECT_TIMEOUT headline))
+         (ssh-control-master (org-element-property :SSH_CONTROL_MASTER headline))
+         (ssh-control-path (org-element-property :SSH_CONTROL_PATH headline))
+         (ssh-control-persist (org-element-property :SSH_CONTROL_PERSIST headline))
+         (ssh-dynamic-forward (org-element-property :SSH_DYNAMIC_FORWARD headline))
+         (ssh-enable-ssh-keysign (org-element-property :SSH_ENABLE_KEYSIGN headline))
+         (ssh-escape-char (org-element-property :SSH_ESCAPE_CHAR headline))
+         (ssh-exit-on-forward-failure (org-element-property :SSH_EXIT_ON_FORWARD_FAILURE headline))
+         (ssh-fingerprint-hash (org-element-property :SSH_FINGERPRINT_HASH headline))
+         )
     (if addr
         (concat "\nHost " host "\n"
                 "  HostName " addr "\n"
@@ -92,6 +105,30 @@
                   (concat "  CheckHostIP " ssh-check-host-ip "\n"))
                 (when ssh-ciphers
                   (concat "  Ciphers " ssh-ciphers "\n"))
+                (when ssh-clear-all-forwardings
+                  (concat "  ClearAllForwardings " ssh-clear-all-forwardings "\n"))
+                (when ssh-compression
+                  (concat "  Compression " ssh-compression "\n"))
+                (when ssh-connection-attempts
+                  (concat "  ConnectionAttempts " ssh-connection-attempts "\n"))
+                (when ssh-connect-timeout
+                  (concat "  ConnectTimeout " ssh-connect-timeout "\n"))
+                (when ssh-control-master
+                  (concat "  ControlMaster " ssh-control-master "\n"))
+                (when ssh-control-path
+                  (concat "  ControlPath " ssh-control-path "\n"))
+                (when ssh-control-persist
+                  (concat "  ControlPersist " ssh-control-persist "\n"))
+                (when ssh-dynamic-forward
+                  (concat "  DynamicForward " ssh-dynamic-forward "\n"))
+                (when ssh-enable-ssh-keysign
+                  (concat "  EnableSSHKeysign " ssh-enable-ssh-keysign "\n"))
+                (when ssh-escape-char
+                  (concat "  EscapeChar " ssh-escape-char "\n"))
+                (when ssh-exit-on-forward-failure
+                  (concat "  ExitOnForwardFailure " ssh-exit-on-forward-failure "\n"))
+                (when ssh-fingerprint-hash
+                  (concat "  FingerprintHash " ssh-fingerprint-hash "\n"))
                 contents)
       contents)))
 
