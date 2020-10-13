@@ -44,8 +44,11 @@
          (ssh-canonicalize-fallback-local (org-element-property :SSH_CANONICALIZE_FALLBACK_LOCAL headline))
          (ssh-canonicalize-hostname (org-element-property :SSH_CANONICALIZE_HOSTNAME headline))
          (ssh-canonicalize-max-dots (org-element-property :SSH_CANONICALIZE_MAX_DOTS headline))
-         (ssh-canonicalize-permitted-cnames (org-element-property :SSH_CANONICALIZE_PERMITTED_CNAMES))
+         (ssh-canonicalize-permitted-cnames (org-element-property :SSH_CANONICALIZE_PERMITTED_CNAMES headline))
+         (ssh-ca-signature-algorithms (org-element-property :SSH_CA_SIGNATURE_ALGORITHMS headline))
          (ssh-certificate-file (org-element-property :SSH_CERTIFICATE_FILE headline))
+         (ssh-challenge-response-auth (org-element-property :SSH_CHALLENGE_RESPONSE_AUTHENTICATION headline))
+         (ssh-check-host-ip (org-element-property :SSH_CHECK_HOST_IP headline))
          (ssh-ciphers (org-element-property :SSH_CIPHERS headline))
          (addr (or ip url)))
     (if addr
@@ -79,8 +82,14 @@
                   (concat "  CanonicalizeMaxDots " ssh-canonicalize-max-dots "\n"))
                 (when ssh-canonicalize-permitted-cnames
                   (concat "  CanonicalizePermittedCNAMEs " ssh-canonicalize-permitted-cnames "\n"))
+                (when ssh-ca-signature-algorithms
+                  (concat "  CASignatureAlgorithms " ssh-ca-signature-algorithms "\n"))
                 (when ssh-certificate-file
                   (concat "  CertificateFile " ssh-certificate-file "\n"))
+                (when ssh-challenge-response-auth
+                  (concat "  ChallengeResponseAuthentication " ssh-challenge-response-auth "\n"))
+                (when ssh-check-host-ip
+                  (concat "  CheckHostIP " ssh-check-host-ip "\n"))
                 (when ssh-ciphers
                   (concat "  Ciphers " ssh-ciphers "\n"))
                 contents)
