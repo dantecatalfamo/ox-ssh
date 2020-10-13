@@ -99,6 +99,19 @@
          (ssh-pubkey-accepted-key-types (org-element-property :SSH_PUBKEY_ACCEPTED_KEY_TYPES headline))
          (ssh-pubkkey-auth (org-element-property :SSH_PUBKEY_AUTHENTICATION headline))
          (ssh-rekey-limit (org-element-property :SSH_REKEY_LIMIT headline))
+         (ssh-remote-command (org-element-property :SSH_REMOTE_COMMAND headline))
+         (ssh-remote-forward (org-element-property :SSH_REMOTE_FORWARD headline))
+         (ssh-request-tty (org-element-property :SSH_REQUEST_TTY headline))
+         (ssh-revoked-host-keys (org-element-property :SSH_REVOKED_HOST_KEYS headline))
+         (ssh-security-key-provider (org-element-property :SSH_SECURITY_KEY_PROVIDER headline))
+         (ssh-send-env (org-element-property :SSH_SEND_ENV headline))
+         (ssh-server-alive-max-count (org-element-property :SSH_SERVER_ALIVE_MAX_COUNT headline))
+         (ssh-server-alive-interval (org-element-property :SSH_SERVER_ALIVE_INTERVAL headline))
+         (ssh-set-env (org-element-property :SSH_SET_ENV headline))
+         (ssh-stream-local-bind-mask (org-element-property :SSH_STREAM_LOCAL_BIND_MASK headline))
+         (ssh-stream-local-bind-unlink (org-element-property :SSH_STREAM_LOCAL_BIND_UNLINK headline))
+         (ssh-strict-host-key-checking (org-element-property :SSH_STRICT_HOST_KEY_CHECKING headline))
+         (ssh-syslog-facility (org-element-property :SSH_SYSLOG_FACILITY headline))
          )
     (if addr
         (concat "\nHost " host "\n"
@@ -237,6 +250,33 @@
                   (concat "  PubkeyAuthentication " ssh-pubkkey-auth "\n"))
                 (when ssh-rekey-limit
                   (concat "  RekeyLimit " ssh-rekey-limit "\n"))
+                (when ssh-remote-command
+                  (concat "  RemoteCommand " ssh-remote-command "\n"))
+                (when ssh-remote-forward
+                  (concat "  RemoteForward " ssh-remote-forward "\n"))
+                (when ssh-request-tty
+                  (concat "  RequestTTY " ssh-request-tty "\n"))
+                (when ssh-revoked-host-keys
+                  (concat "  RevokedHostKeys " ssh-revoked-host-keys "\n"))
+                (when ssh-security-key-provider
+                  (concat "  SecurityKeyProvider " ssh-security-key-provider "\n"))
+                (when ssh-send-env
+                  (concat "  SendEnv " ssh-send-env "\n"))
+                (when ssh-server-alive-max-count
+                  (concat "  ServerAliveCountMax " ssh-server-alive-max-count "\n"))
+                (when ssh-server-alive-interval
+                  (concat "  ServerAliveInterval " ssh-server-alive-interval "\n"))
+                (when ssh-set-env
+                  (concat "  SetEnv " ssh-set-env "\n"))
+                (when ssh-stream-local-bind-mask
+                  (concat "  StreamLocalBindMask " ssh-stream-local-bind-mask "\n"))
+                (when ssh-stream-local-bind-unlink
+                  (concat "  StreamLocalBindUnlink " ssh-stream-local-bind-unlink "\n"))
+                (when ssh-strict-host-key-checking
+                  (concat "  StrictHostKeyChecking " ssh-strict-host-key-checking "\n"))
+                (when ssh-syslog-facility
+                  (concat "  SyslogFacility " ssh-syslog-facility "\n"))
+
                 contents)
       contents)))
 
