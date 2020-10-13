@@ -24,7 +24,7 @@
     (template . org-ssh-template))
   :menu-entry
   '(?s "Export to SSH config"
-       ((?s "As Conf buffer" org-ssh-export-as-config))))
+       ((?s "To temporary buffer" org-ssh-export-as-config))))
 
 (defun org-ssh-headline (headline contents _info)
   "Transform HEADLINE and CONTENTS into SSH config host."
