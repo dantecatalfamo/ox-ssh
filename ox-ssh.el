@@ -37,6 +37,7 @@
          (ssh-certificate-file (org-element-property :SSH_CERTIFICATE_FILE headline))
          (ssh-forward-agent (org-element-property :SSH_FORWARD_AGENT headline))
          (ssh-forward-x11 (org-element-property :SSH_FORWARD_X11 headline))
+         (ssh-address-family (org-element-property :SSH_ADDRESS_FAMILY headline))
          (addr (or ip url)))
     (if addr
         (concat "\nHost " host "\n"
@@ -53,6 +54,8 @@
                   "  ForwardAgent yes\n")
                 (when ssh-forward-x11
                   "  ForwardX11 yes\n")
+                (when ssh-address-family
+                  (concat "  AddressFamily " ssh-address-family "\n"))
                 contents)
       contents)))
 
