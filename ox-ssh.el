@@ -34,6 +34,7 @@
          (ssh-user (org-element-property :SSH_USER headline))
          (ssh-port (org-element-property :SSH_PORT headline))
          (ssh-identity-file (org-element-property :SSH_IDENTITY_FILE headline))
+         (ssh-certificate-file (org-element-property :SSH_CERTIFICATE_FILE headline))
          (ssh-forward-agent (org-element-property :SSH_FORWARD_AGENT headline))
          (ssh-forward-x11 (org-element-property :SSH_FORWARD_X11 headline))
          (addr (or ip url)))
@@ -46,6 +47,8 @@
                   (concat "  Port " ssh-port "\n"))
                 (when ssh-identity-file
                   (concat "  IdentityFile " ssh-identity-file "\n"))
+                (when ssh-certificate-file
+                  (concat "  CertificateFile " ssh-certificate-file "\n"))
                 (when ssh-forward-agent
                   "  ForwardAgent yes\n")
                 (when ssh-forward-x11
