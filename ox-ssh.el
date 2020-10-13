@@ -77,6 +77,16 @@
          (ssh-identities-only (org-element-property :SSH_IDENTITIES_ONLY headline))
          (ssh-identity-agent (org-element-property :SSH_IDENTITY_AGENT headline))
          (ssh-identity-file (org-element-property :SSH_IDENTITY_FILE headline))
+         (ssh-ignore-unknown (org-element-property :SSH_IGNORE_UNKNOWN headline))
+         (ssh-include (org-element-property :SSH_INCLUDE headline))
+         (ssh-ip-qos (org-element-property :SSH_IP_QOS headline))
+         (ssh-kbd-interactive-auth (org-element-property :SSH_KBD_INTERACTIVE_AUTHENTICATION headline))
+         (ssh-kbd-interactive-devices (org-element-property :SSH_KBD_INTERACTIVE_DEVICES headline))
+         (ssh-kex-algos (org-element-property :SSH_KEX_ALGORITHMS headline))
+         (ssh-local-command (org-element-property :SSH_LOCAL_COMMAND headline))
+         (ssh-local-forward (org-element-property :SSH_LOCAL_FORWARD headline))
+         (ssh-log-level (org-element-property :SSH_LOG_LEVEL headline))
+         (ssh-macs (org-element-property :SSH_MACS headline))
          )
     (if addr
         (concat "\nHost " host "\n"
@@ -171,6 +181,26 @@
                   (concat "  IdentityAgent " ssh-identity-agent "\n"))
                 (when ssh-identity-file
                   (concat "  IdentityFile " ssh-identity-file "\n"))
+                (when ssh-ignore-unknown
+                  (concat "  IgnoreUnknown " ssh-ignore-unknown "\n"))
+                (when ssh-include
+                  (concat "  Include " ssh-include "\n"))
+                (when ssh-ip-qos
+                  (concat "  IPQoS " ssh-ip-qos "\n"))
+                (when ssh-kbd-interactive-auth
+                  (concat "  KbdInteractiveAuthentication " ssh-kbd-interactive-auth "\n"))
+                (when ssh-kbd-interactive-devices
+                  (concat "  KbdInteractiveDevices " ssh-kbd-interactive-devices "\n"))
+                (when ssh-kex-algos
+                  (concat "  KexAlgorithms " ssh-kex-algos "\n"))
+                (when ssh-local-command
+                  (concat "  LocalCommand " ssh-local-command "\n"))
+                (when ssh-local-forward
+                  (concat "  LocalForward " ssh-local-forward "\n"))
+                (when ssh-log-level
+                  (concat "  LogLevel " ssh-log-level "\n"))
+                (when ssh-macs
+                  (concat "  MACs " ssh-macs "\n"))
                 contents)
       contents)))
 
