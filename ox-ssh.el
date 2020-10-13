@@ -340,7 +340,7 @@ still inferior to file-local settings."
     (lambda () (conf-mode))))
 
 (defun org-ssh-export-to-config (&optional async subtreep visible-only body-only ext-plist)
-  "Export current buffer to an SSH config buffer.
+  "Export current buffer to an SSH config file.
 
 If narrowing is active in the current buffer, only transcode its
 narrowed part.
