@@ -31,6 +31,7 @@
   (let* ((url (org-element-property :URL headline))
          (ip (org-element-property :IP headline))
          (host (org-element-property :raw-value headline))
+         (addr (or ip url))
          (ssh-user (org-element-property :SSH_USER headline))
          (ssh-port (org-element-property :SSH_PORT headline))
          (ssh-identity-file (org-element-property :SSH_IDENTITY_FILE headline))
@@ -49,8 +50,7 @@
          (ssh-certificate-file (org-element-property :SSH_CERTIFICATE_FILE headline))
          (ssh-challenge-response-auth (org-element-property :SSH_CHALLENGE_RESPONSE_AUTHENTICATION headline))
          (ssh-check-host-ip (org-element-property :SSH_CHECK_HOST_IP headline))
-         (ssh-ciphers (org-element-property :SSH_CIPHERS headline))
-         (addr (or ip url)))
+         (ssh-ciphers (org-element-property :SSH_CIPHERS headline)))
     (if addr
         (concat "\nHost " host "\n"
                 "  HostName " addr "\n"
