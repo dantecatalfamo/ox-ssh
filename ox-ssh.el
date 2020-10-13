@@ -33,7 +33,6 @@
          (host (org-element-property :raw-value headline))
          (addr (or ip url))
          (ssh-user (org-element-property :SSH_USER headline))
-         (ssh-port (org-element-property :SSH_PORT headline))
          (ssh-add-keys-to-agent (org-element-property :SSH_ADD_KEYS_TO_AGENT headline))
          (ssh-address-family (org-element-property :SSH_ADDRESS_FAMILY headline))
          (ssh-batch-mode (org-element-property :SSH_BATCH_MODE headline))
@@ -87,14 +86,25 @@
          (ssh-local-forward (org-element-property :SSH_LOCAL_FORWARD headline))
          (ssh-log-level (org-element-property :SSH_LOG_LEVEL headline))
          (ssh-macs (org-element-property :SSH_MACS headline))
+         (ssh-no-host-auth-for-localhost (org-element-property :SSH_NO_HOST_AUTHENTICATION_FOR_LOCALHOST headline))
+         (ssh-number-of-password-prompts (org-element-property :SSH_NUMBER_OF_PASSWORD_PROMPTS headline))
+         (ssh-password-auth (org-element-property :SSH_PASSWORD_AUTHENTICATION headline))
+         (ssh-permit-local-command (org-element-property :SSH_PERMIT_LOCAL_COMMAND headline))
+         (ssh-pkcs11-provider (org-element-property :SSH_PKCS11_PROVIDER headline))
+         (ssh-port (org-element-property :SSH_PORT headline))
+         (ssh-preferred-auths (org-element-property :SSH_PREFERRED_AUTHENTICATIONS headline))
+         (ssh-proxy-command (org-element-property :SSH_PROXY_COMMAND headline))
+         (ssh-proxy-jump (org-element-property :SSH_PROXY_JUMP headline))
+         (ssh-proxy-use-fd-pass (org-element-property :SSH_PROXY_USE_FD_PASS headline))
+         (ssh-pubkey-accepted-key-types (org-element-property :SSH_PUBKEY_ACCEPTED_KEY_TYPES headline))
+         (ssh-pubkkey-auth (org-element-property :SSH_PUBKEY_AUTHENTICATION headline))
+         (ssh-rekey-limit (org-element-property :SSH_REKEY_LIMIT headline))
          )
     (if addr
         (concat "\nHost " host "\n"
                 "  HostName " addr "\n"
                 (when ssh-user
                   (concat "  User " ssh-user "\n"))
-                (when ssh-port
-                  (concat "  Port " ssh-port "\n"))
                 (when ssh-add-keys-to-agent
                   (concat "  AddKeysToAgent " ssh-add-keys-to-agent "\n"))
                 (when ssh-address-family
@@ -201,6 +211,32 @@
                   (concat "  LogLevel " ssh-log-level "\n"))
                 (when ssh-macs
                   (concat "  MACs " ssh-macs "\n"))
+                (when ssh-no-host-auth-for-localhost
+                  (concat "  NoHostAuthenticationForLocalhost " ssh-no-host-auth-for-localhost "\n"))
+                (when ssh-number-of-password-prompts
+                  (concat "  NumberOfPasswordPrompts " ssh-number-of-password-prompts "\n"))
+                (when ssh-password-auth
+                  (concat "  PasswordAuthentication " ssh-password-auth "\n"))
+                (when ssh-permit-local-command
+                  (concat "  PermitLocalCommand " ssh-permit-local-command "\n"))
+                (when ssh-pkcs11-provider
+                  (concat "  PKCS11Provider " ssh-pkcs11-provider "\n"))
+                (when ssh-port
+                  (concat "  Port " ssh-port "\n"))
+                (when ssh-preferred-auths
+                  (concat "  PreferredAuthentications " ssh-preferred-auths "\n"))
+                (when ssh-proxy-command
+                  (concat "  ProxyCommand " ssh-proxy-command "\n"))
+                (when ssh-proxy-jump
+                  (concat "  ProxyJump " ssh-proxy-jump "\n"))
+                (when ssh-proxy-use-fd-pass
+                  (concat "  ProxyUseFdpass " ssh-proxy-use-fd-pass "\n"))
+                (when ssh-pubkey-accepted-key-types
+                  (concat "  PubkeyAcceptedKeyTypes " ssh-pubkey-accepted-key-types "\n"))
+                (when ssh-pubkkey-auth
+                  (concat "  PubkeyAuthentication " ssh-pubkkey-auth "\n"))
+                (when ssh-rekey-limit
+                  (concat "  RekeyLimit " ssh-rekey-limit "\n"))
                 contents)
       contents)))
 
