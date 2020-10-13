@@ -31,19 +31,25 @@
   (let* ((url (org-element-property :URL headline))
          (ip (org-element-property :IP headline))
          (host (org-element-property :raw-value headline))
-         (ssh-forward (org-element-property :SSH_FORWARD headline))
-         (ssh-port (org-element-property :SSH_PORT headline))
          (ssh-user (org-element-property :SSH_USER headline))
+         (ssh-port (org-element-property :SSH_PORT headline))
+         (ssh-identity-file (org-element-property :SSH_IDENTITY_FILE headline))
+         (ssh-forward-agent (org-element-property :SSH_FORWARD_AGENT headline))
+         (ssh-forward-x11 (org-element-property :SSH_FORWARD_X11 headline))
          (addr (or ip url)))
     (if addr
         (concat "\nHost " host "\n"
                 "  HostName " addr "\n"
-                (when ssh-forward
-                  "  ForwardAgent yes\n")
-                (when ssh-port
-                  (concat "  Port " ssh-port "\n"))
                 (when ssh-user
                   (concat "  User " ssh-user "\n"))
+                (when ssh-port
+                  (concat "  Port " ssh-port "\n"))
+                (when ssh-identity-file
+                  (concat "  IdentityFile " ssh-identity-file "\n"))
+                (when ssh-forward-agent
+                  "  ForwardAgent yes\n")
+                (when ssh-forward-x11
+                  "  ForwardX11 yes\n")
                 contents)
       contents)))
 
