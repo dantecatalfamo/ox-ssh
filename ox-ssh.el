@@ -29,22 +29,22 @@
 (defun org-ssh-headline (headline contents _info)
   "Transform HEADLINE and CONTENTS into SSH config host."
   (let* ((url (org-element-property :URL headline))
-        (ip (org-element-property :IP headline))
-        (host (org-element-property :raw-value headline))
-        (ssh-forward (org-element-property :SSH_FORWARD headline))
-        (ssh-port (org-element-property :SSH_PORT headline))
-        (user (org-element-property :SSH_USER headline))
-        (addr (or ip url)))
+         (ip (org-element-property :IP headline))
+         (host (org-element-property :raw-value headline))
+         (ssh-forward (org-element-property :SSH_FORWARD headline))
+         (ssh-port (org-element-property :SSH_PORT headline))
+         (user (org-element-property :SSH_USER headline))
+         (addr (or ip url)))
     (if addr
-      (concat "\nHost " host "\n"
-              "  HostName " addr "\n"
-              (when ssh-forward
-                "  ForwardAgent yes\n")
-              (when ssh-port
-                (concat "  Port " ssh-port "\n"))
-              (when user
-                (concat "  User " user "\n"))
-              contents)
+        (concat "\nHost " host "\n"
+                "  HostName " addr "\n"
+                (when ssh-forward
+                  "  ForwardAgent yes\n")
+                (when ssh-port
+                  (concat "  Port " ssh-port "\n"))
+                (when user
+                  (concat "  User " user "\n"))
+                contents)
       contents)))
 
 (defun org-ssh-template (contents _info)
@@ -53,7 +53,7 @@
           contents))
 
 (defun org-ssh-export-as-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
-       "Export current buffer to an SSH config buffer.
+  "Export current buffer to an SSH config buffer.
 
 If narrowing is active in the current buffer, only transcode its
 narrowed part.
@@ -77,10 +77,10 @@ code, without surrounding template.
 Optional argument EXT-PLIST, when provided, is a property list
 with external parameters overriding Org default settings, but
 still inferior to file-local settings."
-       (interactive)
-       (org-export-to-buffer 'ssh "*Org SSH Export*"
-         ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST
-         (lambda () (conf-mode))))
+  (interactive)
+  (org-export-to-buffer 'ssh "*Org SSH Export*"
+    ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST
+    (lambda () (conf-mode))))
 
 (provide 'ox-ssh)
 ;;; ox-ssh.el ends here
