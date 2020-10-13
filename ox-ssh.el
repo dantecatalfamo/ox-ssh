@@ -32,7 +32,7 @@
          (ip (org-element-property :IP headline))
          (host (org-element-property :raw-value headline))
          (addr (or ip url))
-         (ssh-user (org-element-property :SSH_USER headline))
+
          (ssh-add-keys-to-agent (org-element-property :SSH_ADD_KEYS_TO_AGENT headline))
          (ssh-address-family (org-element-property :SSH_ADDRESS_FAMILY headline))
          (ssh-batch-mode (org-element-property :SSH_BATCH_MODE headline))
@@ -112,12 +112,18 @@
          (ssh-stream-local-bind-unlink (org-element-property :SSH_STREAM_LOCAL_BIND_UNLINK headline))
          (ssh-strict-host-key-checking (org-element-property :SSH_STRICT_HOST_KEY_CHECKING headline))
          (ssh-syslog-facility (org-element-property :SSH_SYSLOG_FACILITY headline))
-         )
+         (ssh-tcp-keep-alive (org-element-property :SSH_TCP_KEEP_ALIVE headline))
+         (ssh-tunnel (org-element-property :SSH_TUNNEL headline))
+         (ssh-tunnel-device (org-element-property :SSH_TUNNEL_DEVICE headline))
+         (ssh-update-host-keys (org-element-property :SSH_UPDATE_HOST_KEYS headline))
+         (ssh-user (org-element-property :SSH_USER headline))
+         (ssh-user-known-hosts-file (org-element-property :SSH_USER_KNOWN_HOSTS_FILE headline))
+         (ssh-verify-host-key-dns (org-element-property :SSH_VERIFY_HOST_KEY_DNS headline))
+         (ssh-visual-host-key (org-element-property :SSH_VISUAL_HOST_KEY headline))
+         (ssh-x-auth-location (org-element-property :SSH_X_AUTH_LOCATION headline)))
     (if addr
         (concat "\nHost " host "\n"
                 "  HostName " addr "\n"
-                (when ssh-user
-                  (concat "  User " ssh-user "\n"))
                 (when ssh-add-keys-to-agent
                   (concat "  AddKeysToAgent " ssh-add-keys-to-agent "\n"))
                 (when ssh-address-family
@@ -276,7 +282,24 @@
                   (concat "  StrictHostKeyChecking " ssh-strict-host-key-checking "\n"))
                 (when ssh-syslog-facility
                   (concat "  SyslogFacility " ssh-syslog-facility "\n"))
-
+                (when ssh-tcp-keep-alive
+                  (concat "  TCPKeepAlive " ssh-tcp-keep-alive "\n"))
+                (when ssh-tunnel
+                  (concat "  Tunnel " ssh-tunnel "\n"))
+                (when ssh-tunnel-device
+                  (concat "  TunnelDevice " ssh-tunnel-device "\n"))
+                (when ssh-update-host-keys
+                  (concat "  UpdateHostKeys " ssh-update-host-keys "\n"))
+                (when ssh-user
+                  (concat "  User " ssh-user "\n"))
+                (when ssh-user-known-hosts-file
+                  (concat "  UserKnownHostsFile " ssh-user-known-hosts-file "\n"))
+                (when ssh-verify-host-key-dns
+                  (concat "  VerifyHostKeyDNS " ssh-verify-host-key-dns "\n"))
+                (when ssh-visual-host-key
+                  (concat "  VisualHostKey " ssh-visual-host-key "\n"))
+                (when ssh-x-auth-location
+                  (concat "  XAuthLocation " ssh-x-auth-location "\n"))
                 contents)
       contents)))
 
