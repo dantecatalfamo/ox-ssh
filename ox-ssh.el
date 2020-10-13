@@ -50,7 +50,7 @@
 (defun org-ssh-template (contents _info)
   "Transform CONTENTS into SSH config with header."
   (concat org-ssh-header "\n"
-          contents))
+          (replace-regexp-in-string "\n\n\n+" "\n\n" contents)))
 
 (defun org-ssh-export-as-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
   "Export current buffer to an SSH config buffer.
