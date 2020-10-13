@@ -38,6 +38,9 @@
          (ssh-forward-agent (org-element-property :SSH_FORWARD_AGENT headline))
          (ssh-forward-x11 (org-element-property :SSH_FORWARD_X11 headline))
          (ssh-address-family (org-element-property :SSH_ADDRESS_FAMILY headline))
+         (ssh-add-keys-to-agent (org-element-property :SSH_ADD_KEYS_TO_AGENT headline))
+         (ssh-batch-mode (org-element-property :SSH_BATCH_MODE headline))
+         (ssh-bind-interface (org-element-property :SSH_BIND_INTERFACE headline))
          (addr (or ip url)))
     (if addr
         (concat "\nHost " host "\n"
@@ -56,6 +59,12 @@
                   "  ForwardX11 yes\n")
                 (when ssh-address-family
                   (concat "  AddressFamily " ssh-address-family "\n"))
+                (when ssh-add-keys-to-agent
+                  "  AddKeysToAgent yes\n")
+                (when ssh-batch-mode
+                  "  BatchMode yes\n")
+                (when ssh-bind-interface
+                  (concat "  BindInterface " ssh-bind-interface "\n"))
                 contents)
       contents)))
 
