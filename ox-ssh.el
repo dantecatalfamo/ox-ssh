@@ -41,6 +41,10 @@
          (ssh-batch-mode (org-element-property :SSH_BATCH_MODE headline))
          (ssh-bind-interface (org-element-property :SSH_BIND_INTERFACE headline))
          (ssh-canonical-domains (org-element-property :SSH_CANONICAL_DOMAINS headline))
+         (ssh-canonicalize-fallback-local (org-element-property :SSH_CANONICALIZE_FALLBACK_LOCAL headline))
+         (ssh-canonicalize-hostname (org-element-property :SSH_CANONICALIZE_HOSTNAME headline))
+         (ssh-canonicalize-max-dots (org-element-property :SSH_CANONICALIZE_MAX_DOTS headline))
+         (ssh-canonicalize-permitted-cnames (org-element-property :SSH_CANONICALIZE_PERMITTED_CNAMES))
          (ssh-certificate-file (org-element-property :SSH_CERTIFICATE_FILE headline))
          (ssh-ciphers (org-element-property :SSH_CIPHERS headline))
          (addr (or ip url)))
@@ -67,6 +71,14 @@
                   (concat "  BindInterface " ssh-bind-interface "\n"))
                 (when ssh-canonical-domains
                   (concat "  CanonicalDomains " ssh-canonical-domains "\n"))
+                (when ssh-canonicalize-fallback-local
+                  (concat "  CanonicalizeFallbackLocal" ssh-canonicalize-fallback-local "\n"))
+                (when ssh-canonicalize-hostname
+                  (concat "  CanonicalizeHostname " ssh-canonicalize-hostname "\n"))
+                (when ssh-canonicalize-max-dots
+                  (concat "  CanonicalizeMaxDots " ssh-canonicalize-max-dots "\n"))
+                (when ssh-canonicalize-permitted-cnames
+                  (concat "  CanonicalizePermittedCNAMEs " ssh-canonicalize-permitted-cnames "\n"))
                 (when ssh-certificate-file
                   (concat "  CertificateFile " ssh-certificate-file "\n"))
                 (when ssh-ciphers
