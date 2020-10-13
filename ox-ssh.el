@@ -33,7 +33,7 @@
          (host (org-element-property :raw-value headline))
          (ssh-forward (org-element-property :SSH_FORWARD headline))
          (ssh-port (org-element-property :SSH_PORT headline))
-         (user (org-element-property :SSH_USER headline))
+         (ssh-user (org-element-property :SSH_USER headline))
          (addr (or ip url)))
     (if addr
         (concat "\nHost " host "\n"
@@ -42,8 +42,8 @@
                   "  ForwardAgent yes\n")
                 (when ssh-port
                   (concat "  Port " ssh-port "\n"))
-                (when user
-                  (concat "  User " user "\n"))
+                (when ssh-user
+                  (concat "  User " ssh-user "\n"))
                 contents)
       contents)))
 
