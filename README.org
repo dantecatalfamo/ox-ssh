@@ -21,8 +21,6 @@
    precedence. It can also contain one or more
    optional parameters, listed in the table below.
 
-   =[[https://example.com][e]]=
-
    | [[https://man.openbsd.org/man5/ssh_config.5][ssh_config(5)]] option               | ox-ssh property                            |
    |------------------------------------+--------------------------------------------|
    | [[https://man.openbsd.org/man5/ssh_config.5#AddKeysToAgent][=AddKeysToAgent=]]                   | =SSH_ADD_KEYS_TO_AGENT=                    |
@@ -93,7 +91,7 @@
    | [[https://man.openbsd.org/man5/ssh_config.5#RekeyLimit][=RekeyLimit=]]                       | =SSH_REKEY_LIMIT=                          |
    | [[https://man.openbsd.org/man5/ssh_config.5#RemoteCommand][=RemoteCommand=]]                    | =SSH_REMOTE_COMMAND=                       |
    | [[https://man.openbsd.org/man5/ssh_config.5#RemoteForward][=RemoteForward=]]                    | =SSH_REMOTE_FORWARD=                       |
-   | [[https://man.openbsd.org/man5/ssh_config.5#RequestTty][=RequestTty=]]                       | =SSH_REQUEST_TTY=                          |
+   | [[https://man.openbsd.org/man5/ssh_config.5#RequestTTY][=RequestTTY=]]                       | =SSH_REQUEST_TTY=                          |
    | [[https://man.openbsd.org/man5/ssh_config.5#RevokedHostKeys][=RevokedHostKeys=]]                  | =SSH_REVOKED_HOST_KEYS=                    |
    | [[https://man.openbsd.org/man5/ssh_config.5#SecurityKeyProvider][=SecurityKeyProvider=]]              | =SSH_SECURITY_KEY_PROVIDER=                |
    | [[https://man.openbsd.org/man5/ssh_config.5#SendEnv][=SendEnv=]]                          | =SSH_SEND_ENV=                             |
