@@ -3,7 +3,7 @@
 ;; Copyright (C) 2020 Dante Catalfamo
 
 ;; Author: Dante Catalfamo
-;; Version: 1.2
+;; Version: 2.0
 ;; Package-Requires: ((emacs "24.4"))
 ;; Keywords: outlines, org, ssh
 ;; Homepage: https://github.com/dantecatalfamo/ox-ssh
@@ -152,13 +152,23 @@
   :type 'text
   :group 'org-export-ssh)
 
+(defun org-ssh--user-config ()
+  "Return the location of the user's SSH config."
+  (expand-file-name (concat (file-name-as-directory ".ssh")
+                            "config")
+                    (getenv "HOME")))
+
 (org-export-define-backend 'ssh
   '((headline . org-ssh-headline)
     (template . org-ssh-template))
   :menu-entry
-  '(?s "Export to SSH config"
+  `(?s "Export to SSH config"
        ((?s "To file" org-ssh-export-to-config)
-        (?S "To temporary buffer" org-ssh-export-as-config))))
+        (?S "To temporary buffer" org-ssh-export-as-config)
+        (?x ,(format "To %s" (concat "~/"
+                                     (file-name-as-directory ".ssh")
+                                     "config"))
+            org-ssh-export-overwrite-user-config))))
 
 (defun org-ssh-headline (headline contents _info)
   "Transform HEADLINE and CONTENTS into SSH config host."
@@ -504,6 +514,39 @@ Return output file's name."
   (interactive)
   (let ((outfile (org-export-output-file-name ".ssh_config" subtreep)))
     (org-export-to-file 'ssh outfile async subtreep visible-only body-only ext-plist)))
+
+(defun org-ssh-export-overwrite-user-config (&optional async subtreep visible-only body-only ext-plist)
+  "Export current buffer as an SSH config file, overwriting $HOME/.ssh/config.
+
+If narrowing is active in the current buffer, only transcode its
+narrowed part.
+
+If a region is active, transcode that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, transcode the
+sub-tree at point, extracting information from the headline
+properties first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only return body
+code, without surrounding template.
+
+Optional argument EXT-PLIST, when provided, is a property list
+with external parameters overriding Org default settings, but
+still inferior to file-local settings.
+
+Return output file's name."
+  (interactive)
+  (let ((outfile (org-ssh--user-config)))
+    (when (yes-or-no-p (format "Overwrite %s? " outfile))
+      (org-export-to-file 'ssh outfile async subtreep visible-only body-only ext-plist
+                          (lambda (file) (set-file-modes file #o600))))))
 
 (provide 'ox-ssh)
 ;;; ox-ssh.el ends here
