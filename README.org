@@ -108,6 +108,6 @@
    | [[https://man.openbsd.org/man5/ssh_config.5#UpdateHostKeys][UpdateHostKeys]]                   | =SSH_UPDATE_HOST_KEYS=                     |
    | [[https://man.openbsd.org/man5/ssh_config.5#User][User]]                             | =SSH_USER=                                 |
    | [[https://man.openbsd.org/man5/ssh_config.5#UserKnownHostsFile][UserKnownHostsFile]]               | =SSH_USER_KNOWN_HOSTS_FILE=                |
-   | [[https://man.openbsd.org/man5/ssh_config.5#VerifyHostKeyDns][VerifyHostKeyDns]]                 | =SSH_VERIFY_HOST_KEY_DNS=                  |
+   | [[https://man.openbsd.org/man5/ssh_config.5#VerifyHostKeyDNS][VerifyHostKeyDNS]]                 | =SSH_VERIFY_HOST_KEY_DNS=                  |
    | [[https://man.openbsd.org/man5/ssh_config.5#VisualHostKey][VisualHostKey]]                    | =SSH_VISUAL_HOST_KEY=                      |
    | [[https://man.openbsd.org/man5/ssh_config.5#XAuthLocation][XAuthLocation]]                    | =SSH_X_AUTH_LOCATION=                      |

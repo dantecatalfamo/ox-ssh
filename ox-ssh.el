@@ -135,7 +135,7 @@
 ;; | UpdateHostKeys                   | SSH_UPDATE_HOST_KEYS                     |
 ;; | User                             | SSH_USER                                 |
 ;; | UserKnownHostsFile               | SSH_USER_KNOWN_HOSTS_FILE                |
-;; | VerifyHostKeyDns                 | SSH_VERIFY_HOST_KEY_DNS                  |
+;; | VerifyHostKeyDNS                 | SSH_VERIFY_HOST_KEY_DNS                  |
 ;; | VisualHostKey                    | SSH_VISUAL_HOST_KEY                      |
 ;; | XAuthLocation                    | SSH_X_AUTH_LOCATION                      |
 
