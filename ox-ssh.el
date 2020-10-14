@@ -3,7 +3,7 @@
 ;; Copyright (C) 2020 Dante Catalfamo
 
 ;; Author: Dante Catalfamo
-;; Version: 1.0
+;; Version: 1.1
 ;; Package-Requires: ((emacs "24.4"))
 ;; Keywords: outlines, org, ssh
 ;; Homepage: https://github.com/dantecatalfamo/ox-ssh
