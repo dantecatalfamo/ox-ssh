@@ -80,7 +80,7 @@
    | =NumberOfPasswordPrompts=          | =SSH_NUMBER_OF_PASSWORD_PROMPTS=           |
    | =PasswordAuthentication=           | =SSH_PASSWORD_AUTHENTICATION=              |
    | =PermitLocalCommand=               | =SSH_PERMIT_LOCAL_COMMAND=                 |
-   | =Pkcs11Provider=                   | =SSH_PKCS11_PROVIDER=                      |
+   | =PKCS11Provider=                   | =SSH_PKCS11_PROVIDER=                      |
    | =Port=                             | =SSH_PORT=                                 |
    | =PreferredAuthentications=         | =SSH_PREFERRED_AUTHENTICATIONS=            |
    | =ProxyCommand=                     | =SSH_PROXY_COMMAND=                        |
