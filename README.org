@@ -6,7 +6,8 @@
   configuration options for SSH.
 
   For a heading to be exported as a host, it must have either a
-  =HOSTNAME= or =IP= property. It can also contain one or more
+  =HOSTNAME= or =IP= property. If an entry has both, =IP= takes
+  precedence. It can also contain one or more
   optional parameters, listed in the table below.
 
   | [[https://man.openbsd.org/man5/ssh_config.5][ssh_config(5)]] option               | ox-ssh property                            |
