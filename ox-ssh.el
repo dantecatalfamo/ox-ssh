@@ -118,7 +118,7 @@
 ;; | RekeyLimit                       | SSH_REKEY_LIMIT                          |
 ;; | RemoteCommand                    | SSH_REMOTE_COMMAND                       |
 ;; | RemoteForward                    | SSH_REMOTE_FORWARD                       |
-;; | RequestTty                       | SSH_REQUEST_TTY                          |
+;; | RequestTTY                       | SSH_REQUEST_TTY                          |
 ;; | RevokedHostKeys                  | SSH_REVOKED_HOST_KEYS                    |
 ;; | SecurityKeyProvider              | SSH_SECURITY_KEY_PROVIDER                |
 ;; | SendEnv                          | SSH_SEND_ENV                             |
