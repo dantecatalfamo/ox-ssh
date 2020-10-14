@@ -515,6 +515,7 @@ Return output file's name."
   (let ((outfile (org-export-output-file-name ".ssh_config" subtreep)))
     (org-export-to-file 'ssh outfile async subtreep visible-only body-only ext-plist)))
 
+;;;###autoload
 (defun org-ssh-export-overwrite-user-config (&optional async subtreep visible-only body-only ext-plist)
   "Export current buffer as an SSH config file, overwriting $HOME/.ssh/config.
 
