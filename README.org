@@ -1,6 +1,17 @@
 * ox-ssh
   SSH configuration export for org-mode.
+** Commands
+   =ox-ssh= exposes the following interactive commands:
+   - =org-ssh-export-as-config= Exports to a temporary buffer
+   - =org-ssh-export-to-config= Exports to file with the extension
+     =.ssh_config=
 
+   These commands are also exposed through the =org-export-dispatch= menu.
+** Variables
+   - =org-ssh-header= An optional header that will be added to the
+     beginning of the export. This can be used for comments or rules
+     that apply to all hosts.
+** Usage
   Export headings with specific properties as entries in an SSH
   configuration file. These properties correspond with the client
   configuration options for SSH.
@@ -91,7 +102,7 @@
   | =StreamLocalBindUnlink=            | =SSH_STREAM_LOCAL_BIND_UNLINK=             |
   | =StrictHostKeyChecking=            | =SSH_STRICT_HOST_KEY_CHECKING=             |
   | =SyslogFacility=                   | =SSH_SYSLOG_FACILITY=                      |
-  | =TcpKeepAlive=                     | =SSH_TCP_KEEP_ALIVE=                       |
+  | =TCPKeepAlive=                     | =SSH_TCP_KEEP_ALIVE=                       |
   | =Tunnel=                           | =SSH_TUNNEL=                               |
   | =TunnelDevice=                     | =SSH_TUNNEL_DEVICE=                        |
   | =UpdateHostKeys=                   | =SSH_UPDATE_HOST_KEYS=                     |
