@@ -21,6 +21,8 @@
    precedence. It can also contain one or more
    optional parameters, listed in the table below.
 
+   =[[https://example.com][e]]=
+
    | [[https://man.openbsd.org/man5/ssh_config.5][ssh_config(5)]] option               | ox-ssh property                            |
    |------------------------------------+--------------------------------------------|
    | [[https://man.openbsd.org/man5/ssh_config.5#AddKeysToAgent][=AddKeysToAgent=]]                   | =SSH_ADD_KEYS_TO_AGENT=                    |
