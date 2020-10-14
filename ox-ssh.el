@@ -452,7 +452,7 @@ If a region is active, transcode that region.
 
 A non-nil optional argument ASYNC means the process should happen
 asynchronously.  The resulting buffer should be accessible
-through the org-export-stack interface.
+through the `org-export-stack' interface.
 
 When optional argument SUBTREEP is non-nil, transcode the
 sub-tree at point, extracting information from the headline
@@ -482,7 +482,7 @@ If a region is active, transcode that region.
 
 A non-nil optional argument ASYNC means the process should happen
 asynchronously.  The resulting buffer should be accessible
-through the org-export-stack interface.
+through the `org-export-stack' interface.
 
 When optional argument SUBTREEP is non-nil, transcode the
 sub-tree at point, extracting information from the headline
