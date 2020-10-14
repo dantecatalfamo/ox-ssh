@@ -31,6 +31,8 @@
 ;; `ox-ssh' provides the following interactive commands:
 ;; - `org-ssh-export-as-config' Exports to a temporary buffer
 ;; - `org-ssh-export-to-config' Exports to file with the extension .ssh_config
+;; - `org-ssh-export-overwrite-user-config' Exports file, overwrites user's =~/.ssh/config=.
+;;   Prompts user with yes/no option before doing so.
 ;; These commands are also exposed through the `org-export-dispatch' menu.
 ;;
 ;; Variables
