@@ -1,7 +1,7 @@
 * ox-ssh
   SSH configuration export for org-mode.
 ** Commands
-   =ox-ssh= exposes the following interactive commands:
+   =ox-ssh= provides the following interactive commands:
    - =org-ssh-export-as-config= Exports to a temporary buffer
    - =org-ssh-export-to-config= Exports to file with the extension
      =.ssh_config=
