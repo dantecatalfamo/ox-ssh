@@ -44,7 +44,7 @@
 ;; configuration options for SSH.
 ;;
 ;; For a heading to be exported as a host, it must have either a
-;; HOSTNAME or IP property. If an entry has both, =IP= takes
+;; HOSTNAME or IP property. If an entry has both, IP takes
 ;; precedence. It can also contain one or more
 ;; optional parameters, listed in the table below.
 ;;
