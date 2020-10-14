@@ -3,7 +3,7 @@
 ;; Copyright (C) 2020 Dante Catalfamo
 
 ;; Author: Dante Catalfamo
-;; Version: 1.1
+;; Version: 1.2
 ;; Package-Requires: ((emacs "24.4"))
 ;; Keywords: outlines, org, ssh
 ;; Homepage: https://github.com/dantecatalfamo/ox-ssh
@@ -442,6 +442,7 @@
   (string-trim-left (concat org-ssh-header "\n"
                             (replace-regexp-in-string "\n\n\n+" "\n\n" contents))))
 
+;;;###autoload
 (defun org-ssh-export-as-config (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
   "Export current buffer to an SSH config buffer.
 
@@ -472,6 +473,7 @@ still inferior to file-local settings."
     ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST
     (lambda () (conf-mode))))
 
+;;;###autoload
 (defun org-ssh-export-to-config (&optional async subtreep visible-only body-only ext-plist)
   "Export current buffer to an SSH config file.
 
