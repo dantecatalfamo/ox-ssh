@@ -111,3 +111,5 @@
    | [[https://man.openbsd.org/man5/ssh_config.5#VerifyHostKeyDNS][VerifyHostKeyDNS]]                 | =SSH_VERIFY_HOST_KEY_DNS=                  |
    | [[https://man.openbsd.org/man5/ssh_config.5#VisualHostKey][VisualHostKey]]                    | =SSH_VISUAL_HOST_KEY=                      |
    | [[https://man.openbsd.org/man5/ssh_config.5#XAuthLocation][XAuthLocation]]                    | =SSH_X_AUTH_LOCATION=                      |
+** Example
+   [[file:ox-ssh example.jpg]]
