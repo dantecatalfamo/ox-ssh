@@ -50,10 +50,10 @@
 
 (defun org-ssh-headline (headline contents _info)
   "Transform HEADLINE and CONTENTS into SSH config host."
-  (let* ((url (org-element-property :URL headline))
+  (let* ((hostname (org-element-property :HOSTNAME headline))
          (ip (org-element-property :IP headline))
          (host (org-element-property :raw-value headline))
-         (addr (or ip url)))
+         (addr (or ip hostname)))
     (if addr
         (let ((ssh-add-keys-to-agent (org-element-property :SSH_ADD_KEYS_TO_AGENT headline))
               (ssh-address-family (org-element-property :SSH_ADDRESS_FAMILY headline))
