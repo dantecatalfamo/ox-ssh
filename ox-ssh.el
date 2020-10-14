@@ -77,7 +77,7 @@
               (ssh-control-path (org-element-property :SSH_CONTROL_PATH headline))
               (ssh-control-persist (org-element-property :SSH_CONTROL_PERSIST headline))
               (ssh-dynamic-forward (org-element-property :SSH_DYNAMIC_FORWARD headline))
-              (ssh-enable-ssh-keysign (org-element-property :SSH_ENABLE_KEYSIGN headline))
+              (ssh-enable-ssh-keysign (org-element-property :SSH_ENABLE_SSH_KEYSIGN headline))
               (ssh-escape-char (org-element-property :SSH_ESCAPE_CHAR headline))
               (ssh-exit-on-forward-failure (org-element-property :SSH_EXIT_ON_FORWARD_FAILURE headline))
               (ssh-fingerprint-hash (org-element-property :SSH_FINGERPRINT_HASH headline))
