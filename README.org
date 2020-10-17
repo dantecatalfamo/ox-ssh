@@ -1,4 +1,6 @@
 * ox-ssh
+  [[https://melpa.org/#/ox-ssh][file:https://melpa.org/packages/ox-ssh-badge.svg]]
+
   SSH configuration export for org-mode.
 ** Commands
    =ox-ssh= provides the following interactive commands:
