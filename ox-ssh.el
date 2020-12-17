@@ -160,7 +160,6 @@
                             "config")
                     (getenv "HOME")))
 
-;;;###autoload
 (org-export-define-backend 'ssh
   '((headline . org-ssh-headline)
     (template . org-ssh-template))
