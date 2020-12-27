@@ -176,7 +176,7 @@
   "Transform HEADLINE and CONTENTS into SSH config host."
   (let* ((hostname (org-element-property :HOSTNAME headline))
          (ip (org-element-property :IP headline))
-         (host (org-element-property :raw-value headline))
+         (host (or (org-element-property :HOST_OVERRIDE headline) (org-element-property :raw-value headline)))
          (addr (or ip hostname)))
     (if addr
         (let ((ssh-add-keys-to-agent (org-element-property :SSH_ADD_KEYS_TO_AGENT headline))
