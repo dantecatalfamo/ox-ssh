@@ -39,6 +39,8 @@
 ;; - `org-ssh-header' An optional header that will be added to the
 ;;   beginning of the export. This can be used for comments or rules
 ;;   that apply to all hosts.
+;; - `org-ssh-export-suffix' The suffix that will be added to exported file.
+;;   Defaults to ".ssh_config".
 ;;
 ;; Usage
 ;; Export headings with specific properties as entries in an SSH
@@ -151,6 +153,11 @@
 
 (defcustom org-ssh-header ""
   "Optional text to be inserted at the top of SSH config."
+  :type 'text
+  :group 'org-export-ssh)
+
+(defcustom org-ssh-export-suffix ".ssh_config"
+  "Suffix added to exported file."
   :type 'text
   :group 'org-export-ssh)
 
@@ -514,7 +521,7 @@ still inferior to file-local settings.
 
 Return output file's name."
   (interactive)
-  (let ((outfile (org-export-output-file-name ".ssh_config" subtreep)))
+  (let ((outfile (org-export-output-file-name org-ssh-export-suffix subtreep)))
     (org-export-to-file 'ssh outfile async subtreep visible-only body-only ext-plist)))
 
 ;;;###autoload
