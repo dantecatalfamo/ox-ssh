@@ -25,7 +25,10 @@
 
    For a heading to be exported as a host, it must have either a
    =HOSTNAME= or =IP= property. If an entry has both, =IP= takes
-   precedence. It can also contain one or more
+   precedence. The host alias will be equal to the org title
+   or be overriden by the property =HOST_OVERRIDE=, if it is defined.
+
+   It can also contain one or more
    optional parameters, listed in the table below.
 
    | [[https://man.openbsd.org/man5/ssh_config.5][ssh_config(5)]] option             | ox-ssh property                            |
